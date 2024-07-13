@@ -15,6 +15,7 @@
 		63010FED2C4327BE0070A61B /* PWproUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63010FEC2C4327BE0070A61B /* PWproUITests.swift */; };
 		63010FEF2C4327BF0070A61B /* PWproUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63010FEE2C4327BF0070A61B /* PWproUITestsLaunchTests.swift */; };
 		63010FFD2C4329D00070A61B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 63010FFC2C4329D00070A61B /* ComposableArchitecture */; };
+		63010FFF2C432AB20070A61B /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63010FFE2C432AB20070A61B /* CounterFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		63010FE82C4327BE0070A61B /* PWproUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PWproUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63010FEC2C4327BE0070A61B /* PWproUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PWproUITests.swift; sourceTree = "<group>"; };
 		63010FEE2C4327BF0070A61B /* PWproUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PWproUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		63010FFE2C432AB20070A61B /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				63010FD02C4327BD0070A61B /* PWproApp.swift */,
 				63010FD22C4327BD0070A61B /* ContentView.swift */,
+				63010FFE2C432AB20070A61B /* CounterFeature.swift */,
 				63010FD42C4327BE0070A61B /* Assets.xcassets */,
 				63010FD62C4327BE0070A61B /* PWpro.entitlements */,
 				63010FD72C4327BE0070A61B /* Preview Content */,
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63010FFF2C432AB20070A61B /* CounterFeature.swift in Sources */,
 				63010FD32C4327BD0070A61B /* ContentView.swift in Sources */,
 				63010FD12C4327BD0070A61B /* PWproApp.swift in Sources */,
 			);
