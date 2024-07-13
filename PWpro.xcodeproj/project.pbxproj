@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		63010FD12C4327BD0070A61B /* PWproApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63010FD02C4327BD0070A61B /* PWproApp.swift */; };
-		63010FD32C4327BD0070A61B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63010FD22C4327BD0070A61B /* ContentView.swift */; };
 		63010FD52C4327BE0070A61B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63010FD42C4327BE0070A61B /* Assets.xcassets */; };
 		63010FD92C4327BE0070A61B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63010FD82C4327BE0070A61B /* Preview Assets.xcassets */; };
 		63010FE32C4327BE0070A61B /* PWproTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63010FE22C4327BE0070A61B /* PWproTests.swift */; };
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		63010FCD2C4327BD0070A61B /* PWpro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PWpro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63010FD02C4327BD0070A61B /* PWproApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PWproApp.swift; sourceTree = "<group>"; };
-		63010FD22C4327BD0070A61B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		63010FD42C4327BE0070A61B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63010FD62C4327BE0070A61B /* PWpro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PWpro.entitlements; sourceTree = "<group>"; };
 		63010FD82C4327BE0070A61B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				63010FD02C4327BD0070A61B /* PWproApp.swift */,
-				63010FD22C4327BD0070A61B /* ContentView.swift */,
 				63010FFE2C432AB20070A61B /* CounterFeature.swift */,
 				63010FD42C4327BE0070A61B /* Assets.xcassets */,
 				63010FD62C4327BE0070A61B /* PWpro.entitlements */,
@@ -271,7 +268,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				63010FFF2C432AB20070A61B /* CounterFeature.swift in Sources */,
-				63010FD32C4327BD0070A61B /* ContentView.swift in Sources */,
 				63010FD12C4327BD0070A61B /* PWproApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
