@@ -17,6 +17,7 @@
 		6337CE2D2C437AA7002BAF4E /* CounterFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337CE2C2C437AA7002BAF4E /* CounterFeatureView.swift */; };
 		6337CE302C437C69002BAF4E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6337CE2F2C437C69002BAF4E /* ComposableArchitecture */; };
 		6337CE322C4383ED002BAF4E /* CounterFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337CE312C4383ED002BAF4E /* CounterFeatureTests.swift */; };
+		6337CE342C439633002BAF4E /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337CE332C439633002BAF4E /* NumberFactClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		63010FFE2C432AB20070A61B /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		6337CE2C2C437AA7002BAF4E /* CounterFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeatureView.swift; sourceTree = "<group>"; };
 		6337CE312C4383ED002BAF4E /* CounterFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeatureTests.swift; sourceTree = "<group>"; };
+		6337CE332C439633002BAF4E /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
+		6386BE622C445B6600D4E571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +104,10 @@
 		63010FCF2C4327BD0070A61B /* PWpro */ = {
 			isa = PBXGroup;
 			children = (
+				6386BE622C445B6600D4E571 /* Info.plist */,
 				63010FD02C4327BD0070A61B /* PWproApp.swift */,
 				63010FFE2C432AB20070A61B /* CounterFeature.swift */,
+				6337CE332C439633002BAF4E /* NumberFactClient.swift */,
 				6337CE2C2C437AA7002BAF4E /* CounterFeatureView.swift */,
 				63010FD42C4327BE0070A61B /* Assets.xcassets */,
 				63010FD62C4327BE0070A61B /* PWpro.entitlements */,
@@ -276,6 +281,7 @@
 				6337CE2D2C437AA7002BAF4E /* CounterFeatureView.swift in Sources */,
 				63010FFF2C432AB20070A61B /* CounterFeature.swift in Sources */,
 				63010FD12C4327BD0070A61B /* PWproApp.swift in Sources */,
+				6337CE342C439633002BAF4E /* NumberFactClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +446,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PWpro/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -478,6 +485,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PWpro/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

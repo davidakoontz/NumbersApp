@@ -17,7 +17,6 @@ struct CounterFeature {
     struct State: Equatable {
         var count = 0
         var numberFact: String?
-        // added to match up with Testing
         var isLoading = false
         var isTimerRunning = false
         
@@ -33,10 +32,10 @@ struct CounterFeature {
         
     }
     
-    
     enum CancelID { case timer }
     
     @Dependency(\.continuousClock) var clock
+    @Dependency(\.numberFact) var numberFact
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
@@ -46,16 +45,23 @@ struct CounterFeature {
                     state.count -= 1
                     state.numberFact = nil
                     return .none
-                    
+                  
                 case .numberFactButtonTapped:
                     state.numberFact = nil
                     state.isLoading = true
                     return .run { [count = state.count] send in
-                        let (data, _) = try await URLSession.shared
-                            .data(from: URL(string: "http://numbersapi.com/\(count)")!)
-                        let fact = String(decoding: data, as: UTF8.self)
-                        await send(.factResponse(fact))
+                        try await send(.factResponse(self.numberFact.fetch(count)))
                     }
+                    
+//                case .numberFactButtonTapped:
+//                    state.numberFact = nil
+//                    state.isLoading = true
+//                    return .run { [count = state.count] send in
+//                        let (data, _) = try await URLSession.shared
+//                            .data(from: URL(string: "http://numbersapi.com/\(count)")!)
+//                        let fact = String(decoding: data, as: UTF8.self)
+//                        await send(.factResponse(fact))
+//                    }
                     
                 case let .factResponse(fact):
                     state.numberFact = fact

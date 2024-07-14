@@ -12,12 +12,16 @@ import ComposableArchitecture
 struct PWproApp: App {
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-            CounterFeatureView(
-                store: Store(initialState: CounterFeature.State()) {
-                    CounterFeature()
-                }
-            )
+            if !_XCTIsTesting {
+                // Your real root view
+                
+                CounterFeatureView(
+                    store: Store(initialState: CounterFeature.State()) {
+                        CounterFeature()
+                    }
+                )
+                //If TESTING, you can omit the entire entry point of your application:
+            }   // if Not Testing
         }
         
     }

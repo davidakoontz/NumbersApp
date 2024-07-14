@@ -10,10 +10,45 @@ import XCTest
 
 
 @testable import PWpro
-
+/*
+ Testing Gotchas - the app runing in a simulator - does not cause the
+ Dependency to inject the testing MOCK.
+ 
+ Fix:
+ struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            if !_XCTIsTesting {
+            // Your real root view
+        }
+ 
+ https://pointfreeco.github.io/swift-dependencies/main/documentation/dependencies/testing/#Testing-gotchas
+ */
 
 @MainActor
 final class CounterFeatureTests: XCTestCase {
+
+    func testNumberFact() async {
+        // Advice for fixing Dependencies in Testing - WORKING, now.
+        //https://pointfreeco.github.io/swift-dependencies/main/documentation/dependencies/testing/#Testing-gotchas
+        let store = TestStore(initialState: CounterFeature.State()) {
+            CounterFeature()
+        } withDependencies: {
+            $0.numberFact.fetch = { "\($0) is a good number [MOCK]." }
+        }
+        
+        //"The resource could not be loaded because the App Transport Security policy requires the use of a secure connection. Fix update info.plist",
+        await store.send(.numberFactButtonTapped) {
+            $0.isLoading = true
+        }
+
+        await store.receive(\.factResponse) {
+            // receive uses a KeyPath
+            $0.isLoading = false
+            $0.numberFact = "0 is a good number [MOCK]."
+        }
+    }
+    
     
     func testTimer() async {
         let clock = TestClock()
