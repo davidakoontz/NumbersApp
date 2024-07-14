@@ -17,44 +17,77 @@ struct CounterFeature {
     struct State: Equatable {
         var count = 0
         var numberFact: String?
+        // added to match up with Testing
+        var isLoading = false
+        var isTimerRunning = false
+        
     }
     
     enum Action {
         case decrementButtonTapped
-        case incrementButtonTapped
         case numberFactButtonTapped
-        case numberFactResponse(String)
+        case factResponse(String)
+        case incrementButtonTapped
+        case timerTick
+        case toggleTimerButtonTapped
+        
     }
+    
+    
+    enum CancelID { case timer }
+    
+    @Dependency(\.continuousClock) var clock
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
+           
             switch action {
                 case .decrementButtonTapped:
                     state.count -= 1
+                    state.numberFact = nil
                     return .none
                     
+                case .numberFactButtonTapped:
+                    state.numberFact = nil
+                    state.isLoading = true
+                    return .run { [count = state.count] send in
+                        let (data, _) = try await URLSession.shared
+                            .data(from: URL(string: "http://numbersapi.com/\(count)")!)
+                        let fact = String(decoding: data, as: UTF8.self)
+                        await send(.factResponse(fact))
+                    }
+                    
+                case let .factResponse(fact):
+                    state.numberFact = fact
+                    state.isLoading = false
+                    return .none
                     
                 case .incrementButtonTapped:
                     state.count += 1
+                    state.numberFact = nil
                     return .none
                     
+                case .timerTick:
+                    state.count += 1
+                    state.numberFact = nil
+                    return .none
                     
-                case .numberFactButtonTapped:
-                    return .run { [count = state.count] send in
-                        let (data, _) = try await URLSession.shared.data(
-                            from: URL(string: "http://numbersapi.com/\(count)/trivia")!
-                        )
-                        await send(
-                            .numberFactResponse(String(decoding: data, as: UTF8.self))
-                        )
+                case .toggleTimerButtonTapped:
+                    state.isTimerRunning.toggle()
+                    if state.isTimerRunning {
+                        return .run { send in
+                            for await _ in self.clock.timer(interval: .seconds(1)) {
+                                await send(.timerTick)
+                            }
+                        }
+                        .cancellable(id: CancelID.timer)
+                    } else {
+                        return .cancel(id: CancelID.timer)
                     }
-                    
-                    
-                case let .numberFactResponse(fact):
-                    state.numberFact = fact
-                    return .none
-            }
-        }
-    }
+            }   // switch
+        }   // reduce
+
+    }   // var body
+    
 }
 
